@@ -1,4 +1,3 @@
-cat > linksphere/crew/crew.py << 'EOF'
 from crewai import Agent, Crew, Process, Task
 
 # === Agents du LinkSphere Dev Crew ===
@@ -71,4 +70,4 @@ if __name__ == "__main__":
     print("\n=== LinkSphere Dev Crew a terminé sa première mission ===\n")
     print(result)
 
-Clean crew.py final version
+Clean crew.py - version finale
