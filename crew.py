@@ -62,7 +62,7 @@ crew = Crew(
     tasks=[task1, task2, task3],
     process=Process.sequential,
     memory=True,
-    verbose=2
+    verbose=True
 )
 
 if __name__ == "__main__":
