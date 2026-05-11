@@ -70,4 +70,3 @@ if __name__ == "__main__":
     print("\n=== LinkSphere Dev Crew a terminé sa première mission ===\n")
     print(result)
 
-Clean crew.py - version finale
