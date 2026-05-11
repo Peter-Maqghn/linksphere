@@ -72,4 +72,4 @@ if __name__ == "__main__":
     print(result)
 EOF
 
-Add Linksphere Dev Crew
+Fix crew.py syntax
