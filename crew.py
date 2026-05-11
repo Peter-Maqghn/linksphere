@@ -1,4 +1,8 @@
 from crewai import Agent, Crew, Process, Task
+from langchain_community.llms import Ollama
+
+# Utilisation explicite d'Ollama (local)
+llm = Ollama(model="qwen3:14b", temperature=0.7)
 
 # === Agents du LinkSphere Dev Crew ===
 orchestrator = Agent(
@@ -7,35 +11,35 @@ orchestrator = Agent(
     backstory="Chef de projet ambitieux et organisé.",
     verbose=True,
     allow_delegation=True,
-    llm="ollama/qwen3:14b"
+    llm=llm
 )
 
 architect = Agent(
     role="Architecte (Quantum Memory + Liquid Transformer + Dream Mode)",
     goal="Concevoir l'architecture complète de LinkSphere",
     backstory="Expert en systèmes de mémoire persistante et auto-évolutifs.",
-    llm="ollama/qwen3:14b"
+    llm=llm
 )
 
 mobile_builder = Agent(
     role="Mobile & Desktop Builder",
     goal="Créer une app mobile-first (Android + iOS) + Desktop simple et belle",
     backstory="Spécialiste MLC LLM, Tauri et interfaces grand public.",
-    llm="ollama/llama3.2:8b"
+    llm=llm
 )
 
 dream_trainer = Agent(
     role="Dream Mode & Liquid Transformer Engineer",
     goal="Implémenter le Dream Mode et l'adaptation continue",
     backstory="Expert en Unsloth et fine-tuning incrémental.",
-    llm="ollama/qwen3:14b"
+    llm=llm
 )
 
 distributor = Agent(
     role="Distributor & Growth",
     goal="Préparer les releases 1-clic et la stratégie d'adoption massive",
     backstory="Tu veux que LinkSphere soit utilisé quotidiennement par des centaines de milliers de personnes.",
-    llm="ollama/llama3.2:8b"
+    llm=llm
 )
 
 # === Tâches de démarrage ===
@@ -61,12 +65,12 @@ crew = Crew(
     agents=[orchestrator, architect, mobile_builder, dream_trainer, distributor],
     tasks=[task1, task2, task3],
     process=Process.sequential,
-    memory=True,
+    memory=False,          # Désactivé pour éviter les problèmes d'embedder
     verbose=True
 )
 
 if __name__ == "__main__":
+    print("🚀 Lancement du LinkSphere Dev Crew...")
     result = crew.kickoff()
     print("\n=== LinkSphere Dev Crew a terminé sa première mission ===\n")
     print(result)
-
