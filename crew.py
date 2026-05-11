@@ -74,3 +74,5 @@ if __name__ == "__main__":
     result = crew.kickoff()
     print("\n=== LinkSphere Dev Crew a terminé sa première mission ===\n")
     print(result)
+
+Fix crew.py - force local Ollama
